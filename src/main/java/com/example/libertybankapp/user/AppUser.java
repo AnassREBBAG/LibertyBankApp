@@ -1,4 +1,4 @@
-package com.example.libertybank.user;
+package com.example.libertybankapp.user;
 
 
 import javax.persistence.*;
@@ -30,10 +30,12 @@ public class AppUser implements UserDetails {
 
     private AppUserRole appUserRole;
 
+    private String identifier;
 
 
 
-    //employee constructor
+
+    //employee + admin constructor
     public AppUser(String firstName, String lastName, String cin, String email, String password, AppUserRole appUserRole) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -53,7 +55,14 @@ public class AppUser implements UserDetails {
         this.rib = rib;
         this.accountBalance = accountBalance;
         this.appUserRole = appUserRole;
+
+        identifier = rib.substring(12,18);
+
+
+
     }
+
+
 
 
 

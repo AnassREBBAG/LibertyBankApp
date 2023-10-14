@@ -1,4 +1,4 @@
-package com.example.libertybank.user;
+package com.example.libertybankapp.user;
 
 public enum AppUserRole {
 

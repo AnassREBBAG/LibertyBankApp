@@ -3,17 +3,13 @@ package com.example.libertybankapp.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
-public class UserRequest {
+public class Credentials {
 
-    private String firstName;
-    private String lastName;
-    private String cin;
-    private String email;
+    private String identifier;
     private String password;
-
-
-
 }
