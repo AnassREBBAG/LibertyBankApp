@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 });
         http.authorizeRequests().antMatchers("/user/newuser").permitAll()
                 .antMatchers("/user/login").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
                 .and()
                 .cors();
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
