@@ -29,6 +29,7 @@ public class Beans implements CommandLineRunner {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
     private UserService userService;
 
     @Override
@@ -42,15 +43,22 @@ public class Beans implements CommandLineRunner {
             userRepository.save(admin);
         }
 
+        Optional<AppUser> optionalEmployee = userRepository.findAppUserByAppUserRole(AppUserRole.EMPLOYEE);
 
-//
-//        Optional<AppUser> optionalUser = userRepository.findByEmail("anass@mail.com");
-//
-//        if(optionalUser.isEmpty()){
-//
-//            UserRequest request = new UserRequest("anass", "rebbag", "GN235475","anass@mail.com","anass123");
-//            userService.addNewUser(request);
-//        }
+        if(optionalEmployee.isEmpty()){
+            String password = passwordEncoder.encode("employee");
+            AppUser employee_1 = new AppUser("agent", "banquier", "A123456", "banquier@mail.com", password, AppUserRole.EMPLOYEE);
+            userRepository.save(employee_1);
+        }
+
+
+        Optional<AppUser> optionalUser = userRepository.findByEmail("anass@mail.com");
+
+        if(optionalUser.isEmpty()){
+
+            UserRequest request = new UserRequest("anass", "rebbag", "GN235475","anass@mail.com","anass");
+            userService.addNewUser(request);
+        }
 
 
 

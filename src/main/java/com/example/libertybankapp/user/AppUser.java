@@ -66,32 +66,6 @@ public class AppUser implements UserDetails {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(appUserRole.name()));
@@ -99,7 +73,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public String getUsername() {
-        return identifier;
+        return email;
     }
 
     @Override

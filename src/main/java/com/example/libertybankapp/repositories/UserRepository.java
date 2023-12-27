@@ -23,4 +23,6 @@ public interface UserRepository extends JpaRepository<AppUser, Long> {
     Optional<AppUser> findByEmail(String email);
 
     Optional<AppUser> findByIdentifier(String identifier);
+
+    Optional<AppUser> findByCin(String cin);
 }

@@ -2,6 +2,7 @@ package com.example.libertybankapp.security;
 
 
 import com.example.libertybankapp.services.UserDetailsServiceImpl;
+import com.example.libertybankapp.user.AppUserRole;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,9 +40,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint((request, response, ex)->{
                     response.sendError(HttpServletResponse.SC_UNAUTHORIZED, ex.getMessage());
                 });
-        http.authorizeRequests().antMatchers("/user/newuser").permitAll()
-                .antMatchers("/user/login").permitAll()
-                .anyRequest().permitAll()
+        http.authorizeRequests().antMatchers("/authentication/**").permitAll()
+                .antMatchers("/employee/**").hasAuthority("EMPLOYEE")
+                .antMatchers("/swagger-ui.html").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .cors();
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

@@ -1,6 +1,5 @@
 package com.example.libertybankapp.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Credentials {
+public class AmountDto {
+    private Long id;
+    private Long amount;
 
-    private String email;
-    private String password;
 }
