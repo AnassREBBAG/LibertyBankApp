@@ -51,7 +51,6 @@ public class Beans implements CommandLineRunner {
             userRepository.save(employee_1);
         }
 
-
         Optional<AppUser> optionalUser = userRepository.findByEmail("anass@mail.com");
 
         if(optionalUser.isEmpty()){
@@ -59,12 +58,5 @@ public class Beans implements CommandLineRunner {
             UserRequest request = new UserRequest("anass", "rebbag", "GN235475","anass@mail.com","anass");
             userService.addNewUser(request);
         }
-
-
-
-
-
-
-
     }
 }
